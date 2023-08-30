@@ -3,6 +3,14 @@ import * as THREE from 'three'
 /**
  * Base
  */
+
+// Cursor Coordinates 
+
+window.addEventListener('mousemove', (event) =>
+{
+    console.log(event.clientX, event.clientY)
+})
+
 // Canvas
 const canvas = document.querySelector('canvas.webgl')
 
@@ -47,7 +55,7 @@ const tick = () =>
     const elapsedTime = clock.getElapsedTime()
 
     // Update objects
-    mesh.rotation.y = elapsedTime;
+    // mesh.rotation.y = elapsedTime;
 
     // Render
     renderer.render(scene, camera)

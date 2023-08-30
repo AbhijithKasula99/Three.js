@@ -82,4 +82,19 @@ camera.lookAt(mesh.position)
 scene.add(camera)
 ```
 
--
+- Now we would like to move the camera based on the motion of the mouse and to do that this is how it would happen, use the perspective camera for this and then position the camera in such a way that it is facing the cube in the straight direction.
+
+- To do that we can use this line.
+
+```
+camera.position.z = 2
+```
+
+- Now we need to ensure that the change is reflected once the mouse has changed it's position and to do that we need to first detect the coordinates and to detect that we can use **addEventListener**. Using that we can retrieve the 'X' and 'Y' coordinates.
+
+```
+window.addEventListener('mousemove', (event) =>
+{
+    console.log(event.clientX, event.clientY)
+})
+```
