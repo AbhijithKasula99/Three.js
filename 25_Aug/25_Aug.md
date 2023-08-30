@@ -37,4 +37,49 @@ const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height)
 
 - _FOV of 105_
 
-- **Continue from 14th min.**
+### Near and Far
+
+- These are the parameters that are used to define how close or far the camera is.
+
+- Don't use extreme parameters then the model won't be displayed properly as shown in the picture below. These tend to glitches in the real-time environment.`
+
+- ![Near and Far Failure](image-2.png)
+
+- The default code for defining near and far is by:
+
+```
+const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height,0.00001,3.4641016151377544)
+camera.position.x = 2
+camera.position.y = 2
+camera.position.z = 2
+camera.lookAt(mesh.position)
+scene.add(camera)
+```
+
+### Orthographic Camera
+
+- Till now we had been using perspective camera now we are switching to orthographic. The syntax for initializing an orthographi camera is:
+
+```
+const camera = new THREE.OrthographicCamera(left, right, top, bottom, near, far) // Coordinates are important
+const camera = new THREE.OrthographicCamera(-1,1,1,-1, 0.1, 100)
+```
+
+![OrthoCube](image-3.png)
+
+- Now here the cube is not like a cube in the scene and it responds and acts accordingly to the height of the render screen.
+
+- To fix that we can define the aspect ratio as the ratio of width and height of the render screen and multiply it to the left and right variable.
+
+```
+const aspectRatio = sizes.width / sizes.height
+const camera = new THREE.OrthographicCamera(-1*aspectRatio,1*aspectRatio,1,-1,0.1,100)
+camera.position.x = 2
+camera.position.y = 2
+camera.position.z = 2
+console.log(aspectRatio)
+camera.lookAt(mesh.position)
+scene.add(camera)
+```
+
+-
