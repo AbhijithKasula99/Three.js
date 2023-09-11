@@ -1,0 +1,18 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    overflow: hidden;
+}
+
+/* Canvas class name is webgl so we will access the canvas using the class name.  */ 
+
+.webgl { 
+    position: fixed;
+    top: 0;
+    left: 0;
+    outline: none;
+}
